@@ -385,35 +385,6 @@ h3 {
   letter-spacing: -0.03em;
 }
 
-.focus-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-  padding: 0.4rem 0 2.7rem;
-}
-
-.focus-strip span {
-  padding: 0.78rem 1rem;
-  border: 1px solid rgba(182, 255, 245, 0.1);
-  border-radius: 999px;
-  background: rgba(9, 20, 45, 0.48);
-  color: var(--muted-strong);
-  font-size: 0.9rem;
-  animation: fade-up 700ms ease both;
-}
-
-.focus-strip span:nth-child(2) {
-  animation-delay: 80ms;
-}
-
-.focus-strip span:nth-child(3) {
-  animation-delay: 160ms;
-}
-
-.focus-strip span:nth-child(4) {
-  animation-delay: 240ms;
-}
-
 .section {
   padding: 2.3rem 0;
 }
@@ -629,7 +600,6 @@ h3 {
 
   .hero-copy,
   .hero-panel,
-  .focus-strip span,
   .service-card,
   .approach-card,
   .contact-card {
