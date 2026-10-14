@@ -413,6 +413,9 @@ h1 em{color:var(--violet);font-style:normal}
 .flow-label strong,.flow-context-title strong{font-family:var(--font-head);font-size:var(--fl-title);font-weight:600;letter-spacing:-.02em;line-height:1.25}
 .flow-player .flow-label span{color:var(--fl-player-label)}
 .flow-ops .flow-label span{color:var(--fl-ops-label)}
+.flow-ops{display:flex;flex-direction:column}
+.flow-ops .flow-cards{order:1}
+.flow-ops .flow-label{order:2}
 .flow-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--fl-gap);margin:0;padding:0;list-style:none}
 .flow-player .flow-cards{margin-top:48px}
 .flow-ops .flow-cards{margin-bottom:48px}
@@ -549,9 +552,8 @@ h1 em{color:var(--violet);font-style:normal}
 .foundation-config .foundation-row span{display:inline;width:auto;height:auto;border-radius:0;background:none;font-size:9px}
 .foundation-chip{padding:0;border-radius:0;background:none;font-size:7px;color:#9db9c7}
 .foundation-config .foundation-row span{display:inline-block;min-width:18px}
-/* Narrow screens: headline and intro, then the chart, then the calls to action. */
-@media(max-width:800px){.hero-grid{gap:0}.hero-copy{display:contents}.hero-copy h1{order:1}.hero-lead{order:2;margin-bottom:0}.flow{order:3}.hero-actions{order:4;margin-top:36px}}
-@media(max-width:620px){.hero-actions{margin-top:28px}}
+/* Narrow screens: headline and intro lead directly into the chart. */
+@media(max-width:800px){.hero-grid{gap:0}.hero-copy{display:contents}.hero-copy h1{order:1}.hero-lead{order:2;margin-bottom:0}.flow{order:3}}
 /* Foundation card: bare icons, thin row separators back. */
 .foundation-medal,.foundation-config .foundation-medal{width:auto;height:auto;border-radius:0;background:none}
 .foundation-medal svg{width:20px;height:20px}
@@ -615,14 +617,58 @@ h1 em{color:var(--violet);font-style:normal}
 .person-info .person-history{line-height:1.7}
 .person-info .person-history b{color:#d8e8ee;font-weight:600}
 
-/* Founder cards: card background from the original mockup; each role on its own line with the company beneath. */
+/* Founder cards keep the current title and prior experience without repeating the role in prose. */
 .person-card{background:linear-gradient(160deg,#13223F 0%,#0E1832 100%)}
-.person-roles{display:flex;flex-direction:column;gap:9px;margin:6px 0 0;padding:0;list-style:none}
-.person-roles li{display:flex;flex-direction:column;line-height:1.35}
-.person-roles b{color:#d8e8ee;font-size:13px;font-weight:600}
-.person-roles small{color:#9fb7c4;font-size:12.5px}
-@media(max-width:620px){.person-roles b{font-size:12px}.person-roles small{font-size:11.5px}}
-@media(max-width:480px){.person-roles b{font-size:13px}.person-roles small{font-size:12.5px}}
+.person-card{grid-template-rows:auto 1fr}
+.person-card img{grid-column:1;grid-row:1/3}
+.person-info{grid-column:2;grid-row:1;padding-bottom:0}
+.person-info h3{margin-bottom:0}
+.person-past{grid-column:2;grid-row:2;padding:12px 27px 24px}
+.person-past .person-history{margin:0 0 5px;color:#9fb7c4;font-size:11px;line-height:1.4}
+.person-roles{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.person-roles li{color:#aebfcc;font-size:12.5px;line-height:1.45}
+.person-roles b{color:#d8e8ee;font-size:inherit;font-weight:600}
+@media(max-width:800px){.person-past{padding:10px 18px 18px}}
+@media(max-width:620px){
+  .person-card{display:grid;grid-template-columns:92px minmax(0,1fr);grid-template-rows:auto auto;column-gap:15px;min-height:0;padding:16px}
+  .person-card img{grid-column:1;grid-row:1;width:92px;height:92px;object-fit:cover;object-position:center;border-radius:8px}
+  .person-info{grid-column:2;grid-row:1;align-self:center;padding:0}
+  .person-info span{font-size:9px}
+  .person-info h3{margin:7px 0 0;font-size:19px}
+  .person-past{grid-column:1/-1;grid-row:2;margin-top:15px;padding:13px 0 0;border-top:1px solid rgba(188,228,231,.12)}
+  .person-past .person-history{font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+  .person-roles li{font-size:12px}
+}
+
+/* The phone version of the hero diagram uses readable two-column groups. */
+@media(max-width:620px){
+  .flow{--fl-gap:8px;margin:30px auto 0}
+  .flow-label,.flow-ops .flow-label{justify-content:flex-start}
+  .flow-label strong{font-size:14px}
+  .flow-player .flow-cards{margin-top:13px}
+  .flow-ops .flow-label{order:0;margin-bottom:13px}
+  .flow-ops .flow-cards{margin-bottom:0}
+  .flow-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flow-card,.flow-ops .flow-card{justify-content:flex-start;min-height:52px;padding:9px 9px 9px 43px;border-radius:10px;font-size:12px;text-align:left}
+  .flow-medal,.flow-ops .flow-medal{left:11px;top:50%;bottom:auto;width:24px;height:24px;background:transparent;box-shadow:none;transform:translateY(-50%)}
+  .flow-medal svg{width:21px;height:21px;stroke-width:1.8}
+  .flow-links{display:block;position:relative;height:24px}
+  .flow-links span{display:none}
+  .flow-links::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--fl-line)}
+  .flow-context{display:grid;grid-template-columns:1fr;gap:2px;min-height:0;margin:0;padding:17px 16px 17px 55px;border-radius:14px;text-align:left}
+  .flow-context-title strong{margin:0;font-size:14px;white-space:normal}
+  .flow-context p{margin:2px 0 0;font-size:11px;line-height:1.4;text-align:left;justify-self:stretch}
+  .flow-context p small{display:none}
+  .flow-seal{left:12px;top:50%;width:30px;height:30px;margin:0;background:transparent;box-shadow:none;transform:translateY(-50%)}
+  .flow-seal img{width:30px;height:30px}
+}
+
+.footer-inner{min-height:74px}
+@media(max-width:620px){.site-footer .footer-inner{min-height:76px;flex-wrap:nowrap;gap:15px;padding-block:16px}.footer-inner>span:nth-child(2){order:initial;width:auto;font-size:10px;white-space:nowrap}}
+
+.header-cta .cta-label-wide,.header-cta .cta-label-compact{font-size:inherit;line-height:inherit}
+.header-cta .cta-label-compact{display:none}
+@media(max-width:620px){.header-cta{font-size:11px;padding-inline:14px}.header-cta .cta-label-wide{display:none}.header-cta .cta-label-compact{display:inline}}
 
 /* An open three-step illustration of the withdrawal journey. */
 .context-story-open{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:#0A1024}
