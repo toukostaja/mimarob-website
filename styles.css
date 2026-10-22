@@ -682,3 +682,30 @@ h1 em{color:var(--violet);font-style:normal}
 .withdrawal-step h3{margin:1px 0 7px;color:#112443;font-family:var(--font-head);font-size:19px;font-weight:600;letter-spacing:-.035em;line-height:1.3}
 .withdrawal-step p{max-width:520px;margin:0;color:#3d586a;font-size:14px;line-height:1.65}
 @media(max-width:620px){.withdrawal-step{gap:15px;padding-bottom:23px}.withdrawal-step h3{font-size:17px}.withdrawal-step p{font-size:13px;line-height:1.6}}
+
+/* Rules, AI and people: a clear handoff from the product idea to the platform foundation. */
+.decision-section{background:#0F1A36}
+.decision-heading{max-width:900px;margin-bottom:46px}
+.decision-heading h2{margin:18px 0 22px;font-size:clamp(34px,3.8vw,56px);line-height:1.2}
+.decision-heading h2 span{color:var(--violet)}
+.decision-heading>p:last-child{max-width:720px;margin:0;color:#b9cbd8;font-size:16px;line-height:1.75}
+.decision-layers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(182,255,245,.2);border-bottom:1px solid rgba(182,255,245,.2)}
+.decision-layer{padding:28px 30px 31px 0}
+.decision-layer+.decision-layer{padding-left:30px;border-left:1px solid rgba(182,255,245,.15)}
+.decision-layer h3{max-width:270px;margin:0 0 14px;font-size:20px;line-height:1.3}
+.decision-layer p{margin:0;color:#adbfcd;font-size:14px;line-height:1.7}
+.decision-example{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:8%;margin-top:67px}
+.decision-example-heading .section-kicker{color:#9de5e2}
+.decision-example-heading h3{max-width:400px;margin:15px 0 0;font-size:clamp(28px,3vw,42px);line-height:1.25}
+.decision-steps{list-style:none;margin:0;padding:0}
+.decision-steps li{padding:0 0 25px}
+.decision-steps li+li{padding-top:25px;border-top:1px solid rgba(182,255,245,.15)}
+.decision-steps li:last-child{padding-bottom:0}
+.decision-steps h4{margin:0 0 8px;font-family:var(--font-head);font-size:16px;font-weight:600;letter-spacing:-.035em;line-height:1.35}
+.decision-steps p{margin:0;color:#adbfcd;font-size:14px;line-height:1.65}
+@media(max-width:800px){.decision-layers{grid-template-columns:1fr}.decision-layer,.decision-layer+.decision-layer{padding:23px 0;border-left:0}.decision-layer+.decision-layer{border-top:1px solid rgba(182,255,245,.15)}.decision-layer h3{max-width:none}.decision-example{grid-template-columns:1fr;gap:29px;margin-top:48px}}
+@media(max-width:620px){.decision-heading{margin-bottom:31px}.decision-heading h2{font-size:clamp(31px,8vw,42px)}.decision-heading>p:last-child{font-size:15px}.decision-layer p,.decision-steps p{font-size:13px}.decision-example-heading h3{font-size:29px}}
+
+/* Capability labels and explanations carry the layout without decorative numbering. */
+.capability-list>div{grid-template-columns:minmax(0,.9fr) minmax(0,1.15fr)}
+@media(max-width:620px){.capability-list>div{display:block}.capability-list small{display:block;margin-top:3px}}
